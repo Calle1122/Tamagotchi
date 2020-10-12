@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Tamagotchi
 {
@@ -7,7 +8,7 @@ namespace Tamagotchi
         public string name = "";
         int hunger = 0;
         int boredom = 0;
-        string[] words;
+        List<string> words = new List<string>();
         bool isAlive = true;
         Random generator = new Random();
 
@@ -20,11 +21,15 @@ namespace Tamagotchi
         }
 
         public void Hi(){
+            int lenght = words.Count;
+            int wordNumber = generator.Next(lenght);
 
+            Console.WriteLine(words[wordNumber]);
         }
 
         public void Teach(string word){
-            
+            words.Add(word);
+            ReduceBoredom();
         }
 
         public void Tick(){
