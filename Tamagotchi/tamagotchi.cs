@@ -35,6 +35,14 @@ namespace Tamagotchi
         public void Tick(){
             boredom++;
             hunger++;
+
+            if(hunger >= 10){
+                isAlive = false;
+            }
+
+            if(boredom >= 10){
+                isAlive = false;
+            }
         }
 
         public void PrintStats(){
@@ -44,15 +52,11 @@ namespace Tamagotchi
         }
 
         public bool GetAlive(){
-            if (hunger >= 10){
+            if (isAlive == false){
                 return false;
             }
 
-            else if(boredom >= 10){
-                return false;
-            }
-
-            else {
+            else{
                 return true;
             }
         }

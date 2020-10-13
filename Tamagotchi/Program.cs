@@ -25,6 +25,27 @@ namespace Tamagotchi
                 Console.WriteLine("4. Do nothing");
 
                 string answer = Console.ReadLine();
+
+                if(answer == "1"){
+                    
+                }
+
+                else if(answer == "2"){
+
+                }
+
+                else if(answer == "3"){
+
+                }
+
+                else if(answer == "4"){
+
+                }
+
+                else{
+
+                }
+                
             }
             
         }
