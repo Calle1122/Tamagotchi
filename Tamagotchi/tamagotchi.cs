@@ -44,12 +44,16 @@ namespace Tamagotchi
         }
 
         public bool GetAlive(){
-            if (isAlive == true){
-                return true;
+            if (hunger >= 10){
+                return false;
+            }
+
+            else if(boredom >= 10){
+                return false;
             }
 
             else {
-                return false;
+                return true;
             }
         }
 
