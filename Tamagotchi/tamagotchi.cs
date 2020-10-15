@@ -12,59 +12,80 @@ namespace Tamagotchi
         bool isAlive = true;
         Random generator = new Random();
 
-        public void Feed(){
-            hunger--;
+        public void Feed()
+        {
+            hunger = hunger - 2;
 
-            if (hunger < 0){
+            if (hunger < 0)
+            {
                 hunger = 0;
             }
         }
 
-        public void Hi(){
-            int lenght = words.Count;
-            int wordNumber = generator.Next(lenght);
+        public void Hi()
+        {
 
-            Console.WriteLine(words[wordNumber]);
+            if (words.Count == 0)
+            {
+                Console.WriteLine("Your tamagotchi doesn't know any words.");
+            }
+            else
+            {
+                int wordNumber = generator.Next(words.Count);
+                Console.WriteLine(name + " says:");
+                Console.WriteLine(words[wordNumber]);
+                ReduceBoredom();
+            }
         }
 
-        public void Teach(string word){
+        public void Teach(string word)
+        {
             words.Add(word);
             ReduceBoredom();
         }
 
-        public void Tick(){
+        public void Tick()
+        {
             boredom++;
             hunger++;
 
-            if(hunger >= 10){
+            if (hunger >= 10)
+            {
                 isAlive = false;
             }
 
-            if(boredom >= 10){
+            if (boredom >= 10)
+            {
                 isAlive = false;
             }
         }
 
-        public void PrintStats(){
+        public void PrintStats()
+        {
             Console.WriteLine("Hunger: " + hunger);
             Console.WriteLine("Boredom: " + boredom);
-            Console.WriteLine(GetAlive());
+            Console.WriteLine("Alive: " + GetAlive());
         }
 
-        public bool GetAlive(){
-            if (isAlive == false){
+        public bool GetAlive()
+        {
+            if (isAlive == false)
+            {
                 return false;
             }
 
-            else{
+            else
+            {
                 return true;
             }
         }
 
-        private void ReduceBoredom(){
-            boredom--;
+        private void ReduceBoredom()
+        {
+            boredom = boredom - 2;
 
-            if (boredom < 0){
+            if (boredom < 0)
+            {
                 boredom = 0;
             }
         }
