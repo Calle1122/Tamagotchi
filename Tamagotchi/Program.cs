@@ -71,9 +71,17 @@ namespace Tamagotchi
                     Console.WriteLine("Please select a number between 1-4.");
                     Console.ReadLine();
                     Console.Clear();
-
                 }
 
+                    alive = player1.GetAlive();
+
+            }
+
+            if(alive == false){
+                Console.WriteLine(player1.name + " has died.");
+                Console.WriteLine("RIP");
+
+                Console.ReadLine();
             }
             
         }
